@@ -72,12 +72,17 @@
 
 	}
 
- 
+	
 	
 	
 	
 int main() 
  {
+	//welcome function self explanatory
+	void welcome();
+
+	//function that gets the players name its static and cannot be called outside of this file might change
+	std::string playerName = player();
 	 
 	//calls to see how much money player has now reference this into the status to find out if hes a high roller
 	 float moneyHave = currentPlayerMoney();
@@ -87,8 +92,7 @@ int main()
 
 
 
-	 return 0;
- 
+	 return 0; 
  }
 
 
