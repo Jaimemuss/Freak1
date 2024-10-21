@@ -79,19 +79,19 @@ float roulette(float& playerMoney) {
         }
     } while (betAmount <= 0 || betAmount > playerMoney);
 
-    // Deduct the bet amount from player's balance
+    // minus the bet amount from player's balance
     playerMoney -= betAmount;
 
-    // Simulate spinning the roulette wheel
-    rouletteNumber = rand() % 37; // Random number between 0 and 36
+    
+    rouletteNumber = rand() % 37; 
     std::cout << "The roulette wheel spins...\n";
     std::this_thread::sleep_for(std::chrono::seconds(3));
     std::cout << "The ball lands on: " << rouletteNumber << "\n";
 
-    // Check if player wins
+   
     if (rouletteNumber == chosenNumber) {
         std::cout << "Congratulations! You won!\n";
-        playerMoney += betAmount * 35; // Payout for betting on a number is 35 to 1
+        playerMoney += betAmount * 35; 
     }
     else {
         std::cout << "Sorry, you lost your bet.\n";
@@ -112,7 +112,7 @@ void game_menu(float& playerMoney) {
 
     switch (gameChoice) {
     case 1:
-        playerMoney = roulette(playerMoney); // Call the roulette game
+        playerMoney = roulette(playerMoney); 
         break;
     case 2:
         std::cout << "You chose Blackjack.\n";
@@ -124,13 +124,13 @@ void game_menu(float& playerMoney) {
         std::cout << "Going back to High Roller Menu...\n";
         break;
     default:
-        std::cout << "That’s not an option, please try again.\n";
+        std::cout << "Thatâ€™s not an option, please try again.\n";
         break;
     }
 }
 
 int main() {
-    srand(time(0)); // Seed the random number generator
+    srand(time(0)); 
     welcome();
     Sleep(2000);
 
@@ -146,27 +146,25 @@ int main() {
 
         while (running) {
             highRollerMenu();
-            std::cin >> userChoice;  // Get user input before switch
+            std::cin >> userChoice;  
 
             switch (userChoice) {
             case 1:
                 std::cout << "You have $" << moneyHave << " dollars\n";
                 break;
             case 2:
-                game_menu(moneyHave); // Pass money to game_menu
+                game_menu(moneyHave);
                 break;
             case 3:
                 std::cout << "You are exiting the casino...\n";
                 Sleep(2000);
-                exit(0); // Exit the program
+                exit(0); 
                 break;
             default:
                 std::cout << "Sorry, please select one of the options above\n";
                 system("cls");
                 break;
             }
-
-            // Condition to stop running the high roller loop
             if (moneyHave < 10000) {
                 std::cout << "You no longer have enough money to play at the high roller tables.\n";
                 running = false;
